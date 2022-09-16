@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useTheme, Typography, Box } from "@mui/material";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
 import Navbar from "./Navbar";
 import Contact from "./Contact";
 import UserCards from "./UserCards";
@@ -22,19 +21,14 @@ export default function Container() {
   return (
     <>
       <Navbar value={value} handleChange={handleChange} />
-      <SwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-        style={{ marginTop: 60 }}
-      >
+      <div style={{ marginTop: 60 }}>
         <TabPanel value={value} index={0} dir={theme.direction}>
           <UserCards />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           <ProductList />
         </TabPanel>
-      </SwipeableViews>
+      </div>
       <Contact />
     </>
   );
